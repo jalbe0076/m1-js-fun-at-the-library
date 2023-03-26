@@ -25,8 +25,18 @@ function checkoutBook(library, book, genre) {
 }
 
 function takeStock(library, genre) {
+  var shelfNames = Object.keys(library.shelves);
+  var booksOnShelves =[];
+
+  for (var i = 0; i < shelfNames.length; i++)
+  {
+    for (var j = 0; j < library.shelves[shelfNames[i]].length; j++) {
+      booksOnShelves.push(library.shelves[shelfNames[i]][j].title);
+    }
+  }
+
   if (!genre) {
-    return `There are a total of ${Object.keys(library.shelves).length} books at the ${library.name}.`;
+      return `There are a total of ${booksOnShelves.length} books at the ${library.name}.`;
   }
   return `There are a total of ${library.shelves[genre].length} ${genre} books at the ${library.name}.`
 }

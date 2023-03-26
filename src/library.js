@@ -28,8 +28,7 @@ function takeStock(library, genre) {
   var shelfNames = Object.keys(library.shelves);
   var booksOnShelves =[];
 
-  for (var i = 0; i < shelfNames.length; i++)
-  {
+  for (var i = 0; i < shelfNames.length; i++) {
     for (var j = 0; j < library.shelves[shelfNames[i]].length; j++) {
       booksOnShelves.push(library.shelves[shelfNames[i]][j].title);
     }
